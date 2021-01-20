@@ -1,0 +1,72 @@
+<div class="row container add-book-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="add-new-book-head">
+                    Add New Book
+                </div>
+            </div>
+        </div>
+
+
+        <form [formGroup]="addBookForm">
+            <div class="row add-book-form">
+                <div class="col">
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Book Title
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="title">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Book Author
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="author">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Book Type
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="type">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Book Image
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input class="upload-file" #file type="file" accept='image/*' (change)="previewBookImage(file.files[0])" />
+
+                            <div class="book-image-preview">
+                                <img class="image" [src]="bookImageURL" *ngIf="bookImageURL">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6 text-center">
+                            <div class="submit-cancel-btn-box">
+                                <button class="submit-btn" (click)="submitBook()">Submit</button>
+                                <button class="cancel-btn" (click)="cancel()"> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

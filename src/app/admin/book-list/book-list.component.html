@@ -1,0 +1,57 @@
+<div class="row container book-list-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="book-list-head">
+                    Available Books
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row books-grid">
+            <div class="col">
+                <div class="row head">
+                    <div class="col">
+                        <div class="col-head">Book ID</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Title</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Author</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Type</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Image</div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="row body-row" *ngFor="let book of books">
+                        <div class="col">
+                            <div class="col-head">Book ID</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.title || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.author|| '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.type || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">
+                                <img [src]="book.image" *ngIf="book.image" class="book-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
