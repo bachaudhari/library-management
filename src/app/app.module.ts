@@ -12,6 +12,7 @@ import { HomeComponent } from './user/home/home.component';
 import { AddNewUserComponent } from './registration/add-new-user/add-new-user.component';
 import { LandingComponent } from './landing/landing.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserDetailsComponent,
     HomeComponent,
     AddNewUserComponent,
-    LandingComponent
+    LandingComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

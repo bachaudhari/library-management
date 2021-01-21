@@ -1,0 +1,23 @@
+.nav-bar-wrapper {
+    background: #1876d2;
+
+    .nav-bar {
+        width: 100%;
+        margin: auto;
+
+        .nav-link {
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            width: max-content;
+            display: inline-block;
+            padding: 10px 50px;
+            outline: none;
+
+            &.active {
+                background: #fff;
+                color: #1876d2;
+            }
+        }
+    }
+}

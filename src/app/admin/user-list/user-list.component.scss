@@ -1,0 +1,39 @@
+.user-list-container {
+    margin: auto;
+
+    .user-list-head {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    .user-grid {
+        margin-top: 20px;
+
+        .head {
+            color: #002447;
+            height: 35px;
+            background: #d9e0e7;
+            border: 1px solid #d9e0e7;
+            border-radius: 6px;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .body {
+            .body-row {
+                font-size: 14px;
+                // height: 47px;
+                background: #fff;
+                border: 1px solid #d9e0e7;
+                border-radius: 6px;
+                margin-top: 10px;
+                color: #002447;
+                align-items: center;
+
+                .data {
+                    padding: 5px;
+                }
+            }
+        }
+    }
+}

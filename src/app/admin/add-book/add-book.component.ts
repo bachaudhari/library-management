@@ -28,8 +28,6 @@ export class AddBookComponent implements OnInit {
   }
 
   submitBook() {
-    debugger
-
     const addNewBook = this.addBookForm.value;
     const books: any[] = this.adminService.getLocalStorage('books') || [];
 

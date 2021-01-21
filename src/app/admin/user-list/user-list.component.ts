@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-user-list',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+  users: any[];
 
-  constructor() { }
+  constructor(
+    public adminService: AdminService
+  ) { }
 
   ngOnInit(): void {
+    this.getUsers();
   }
 
+  getUsers() {
+    this.users = this.adminService.getLocalStorage('users');
+  }
 }

@@ -1,1 +1,55 @@
-<p>user-list works!</p>
+<div class="row container user-list-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="user-list-head">
+                    User List
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row user-grid">
+            <div class="col">
+                <div class="row head">
+                    <div class="col">
+                        <div class="col-head">Name</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Age</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Email</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Phone</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Address</div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="row body-row" *ngFor="let user of users">
+                        <div class="col">
+                            <div class="data">{{user?.name || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="data">{{user?.age || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="data">{{user?.email || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="data">{{user?.phone || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="data">{{user?.address || '--'}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

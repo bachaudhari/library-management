@@ -1,1 +1,78 @@
-<p>add-new-user works!</p>
+<div class="row container add-user-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="add-new-user-head">
+                    Registration
+                </div>
+            </div>
+        </div>
+
+
+        <form [formGroup]="addUserForm">
+            <div class="row add-user-form">
+                <div class="col">
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Full Name
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="name">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Age
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="age">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Email ID
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="email">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Phone No.
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="phone">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Address
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <textarea class="input-field address" rows="5" formControlName="address"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6 text-center">
+                            <div class="submit-cancel-btn-box">
+                                <button class="submit-btn" (click)="addUser()">Submit</button>
+                                <button class="cancel-btn" (click)="cancel()"> Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

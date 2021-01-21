@@ -7,6 +7,7 @@ import { AddBookComponent } from './admin/add-book/add-book.component';
 import { UserDetailsComponent } from './admin/user-details/user-details.component';
 import { HomeComponent } from './user/home/home.component';
 import { LandingComponent } from './landing/landing.component';
+import { AddNewUserComponent } from './registration/add-new-user/add-new-user.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
+    component: LandingComponent,
     children: [
       {
         path: '',
@@ -46,6 +48,10 @@ const routes: Routes = [
   {
     path: 'user',
     component: HomeComponent
+  },
+  {
+    path: 'user-registration',
+    component: AddNewUserComponent
   }
 ];
 
