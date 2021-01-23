@@ -1,0 +1,54 @@
+<div class="row container signin-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="sign-in-head">
+                    Sign In
+                </div>
+            </div>
+        </div>
+
+
+        <form [formGroup]="signInForm">
+            <div class="row login-form">
+                <div class="col">
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            UserName
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="text" class="input-field" formControlName="userName">
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Password
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="password" class="input-field" formControlName="password">
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <span class="error">{{error}}</span>
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6 text-center">
+                            <div class="submit-cancel-btn-box">
+                                <button class="submit-btn" (click)="signIn()">Login</button>
+                                <button class="signup-btn" routerLink="/user-registration">Sign Up</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

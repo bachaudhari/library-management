@@ -1,0 +1,121 @@
+.book-list-container {
+    margin: auto;
+
+    .search-book-row {
+        margin-top: 25px;
+
+        .search-input {
+            width: 40%;
+            font-weight: normal;
+            text-decoration: none;
+            text-align: left;
+            padding: 5px;
+            background: #ffffff;
+            border: 1px solid #8492a6;
+            border-radius: 20px;
+            margin-right: 20px;
+        }
+
+        .search-btn {
+            font-weight: 600;
+            font-size: 14px;
+            border-radius: 20px;
+            padding: 7px;
+            text-align: center;
+            box-shadow: none;
+            background: #1976d2;
+            color: #ffffff;
+            border: 2px solid #1976d2;
+            width: 150px;
+            margin-right: 15px;
+
+            &.clear-btn {
+                background: transparent;
+                color: #000000;
+                border: 1px solid #000000;
+            }
+        }
+    }
+
+    .book-list-head {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 25px;
+    }
+
+    .books-grid {
+        margin-top: 20px;
+
+        .head {
+            color: #002447;
+            height: 35px;
+            background: #d9e0e7;
+            border: 1px solid #d9e0e7;
+            border-radius: 6px;
+            align-items: center;
+            font-size: 16px;
+        }
+
+        .body {
+            .body-row {
+                font-size: 14px;
+                height: 47px;
+                background: #fff;
+                border: 1px solid #d9e0e7;
+                border-radius: 6px;
+                margin-top: 10px;
+                color: #002447;
+                align-items: center;
+
+                .book-image {
+                    height: 40px;
+                    width: 70px;
+                }
+
+                .view-download-link {
+                    color: #1976d2;
+                    text-decoration: underline;
+                }
+
+                .status {
+                    &.pending {
+                        color: orangered;
+                    }
+                }
+            }
+        }
+    }
+}
+
+::ng-deep {
+    .p-autocomplete {
+        .p-autocomplete-input {
+            width: 500px;
+            font-weight: normal;
+            text-decoration: none;
+            text-align: left;
+            padding: 5px;
+            background: #ffffff;
+            border: 1px solid #8492a6;
+            border-radius: 20px;
+            margin-right: 20px;
+        }
+
+        .p-autocomplete-panel {
+            .p-autocomplete-item {
+                .book-item {
+                    .book-img {
+                        height: 30px;
+                        width: 30px;
+                        border: 1px solid grey;
+                    }
+
+                    .book-title {
+                        margin-top: 3px;
+                        margin-left: 7px;
+                    }
+                }
+            }
+        }
+    }
+}

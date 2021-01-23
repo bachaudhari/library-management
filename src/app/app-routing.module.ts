@@ -8,11 +8,13 @@ import { UserDetailsComponent } from './admin/user-details/user-details.componen
 import { HomeComponent } from './user/home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { AddNewUserComponent } from './registration/add-new-user/add-new-user.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: LandingComponent
+    redirectTo: 'sign-in',
+    pathMatch: 'full'
   },
   {
     path: 'admin',
@@ -20,7 +22,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'dashboard',
+        redirectTo: 'user-list',
         pathMatch: 'full'
       },
       {
@@ -52,6 +54,10 @@ const routes: Routes = [
   {
     path: 'user-registration',
     component: AddNewUserComponent
+  },
+  {
+    path: 'sign-in',
+    component: SignInComponent
   }
 ];
 

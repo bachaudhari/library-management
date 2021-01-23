@@ -1,1 +1,84 @@
-<p>home works!</p>
+<div class="row container book-list-container">
+    <div class="col">
+
+        <div class="row search-book-row">
+            <div class="col text-center">
+                <!-- <input type="text" class="search-input" placeholder="Search book" #bookSearchInput> -->
+                <!-- <p-autoComplete [suggestions]="searchBook  -->
+
+                <p-autoComplete [suggestions]="searchBookList" field="title" [minLength]="1"
+                    (completeMethod)="searchBook($event)" placeholder="Search book" emptyMessage="No books available for search query">
+                    <ng-template let-book pTemplate="item">
+                        <div class="book-item d-flex">
+                            <img [src]="book.image"  class="book-img"/>
+                            <div class="book-title">{{book.title}}</div>
+                        </div>
+                    </ng-template>
+                </p-autoComplete>
+
+
+                <!-- <button class="search-btn" (click)="searchBook()">Search</button> -->
+                <button class="search-btn clear-btn">Clear</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col p-0">
+                <div class="book-list-head">
+                    Accessible Books
+                </div>
+            </div>
+        </div>
+
+        <div class="row books-grid">
+            <div class="col">
+                <div class="row head">
+                    <div class="col">
+                        <div class="col-head">Status</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Title</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Author</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Type</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Book Image</div>
+                    </div>
+                    <div class="col">
+                        <div class="col-head">Action</div>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <div class="row body-row" *ngFor="let book of books">
+                        <div class="col">
+                            <div class="col-head status pending">Pending</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.title || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.author|| '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">{{book?.type || '--'}}</div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head">
+                                <img [src]="book.image" *ngIf="book.image" class="book-image">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head view-download-link">View / Download</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

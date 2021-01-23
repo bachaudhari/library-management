@@ -41,6 +41,6 @@ export class AddNewUserComponent implements OnInit {
   }
 
   cancel() {
-
+    this.addUserForm.reset();
   }
 }
