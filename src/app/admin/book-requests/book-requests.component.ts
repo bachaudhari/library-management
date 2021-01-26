@@ -3,11 +3,11 @@ import { AdminService } from '../services/admin.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: ['./user-list.component.scss']
+  selector: 'app-book-requests',
+  templateUrl: './book-requests.component.html',
+  styleUrls: ['./book-requests.component.scss']
 })
-export class UserListComponent implements OnInit {
+export class BookRequestsComponent implements OnInit {
   users: any[];
 
   constructor(

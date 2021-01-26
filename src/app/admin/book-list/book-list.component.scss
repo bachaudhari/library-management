@@ -4,6 +4,26 @@
     .book-list-head {
         font-size: 24px;
         font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .add-new-book-btn {
+        font-weight: 600;
+        font-size: 14px;
+        border-radius: 20px;
+        padding: 7px;
+        text-align: center;
+        box-shadow: none;
+        background: #ffffff;
+        color: #1976d2;
+        border: 2px solid #1976d2;
+        width: 150px;
+        margin-right: 15px;
+
+        &:hover {
+            background: #1976d2;
+            color: #ffffff;
+        }
     }
 
     .books-grid {
@@ -33,6 +53,10 @@
                 .book-image {
                     height: 40px;
                     width: 70px;
+                }
+
+                .action{
+                    cursor: pointer;
                 }
             }
         }

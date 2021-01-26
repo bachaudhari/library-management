@@ -1,0 +1,59 @@
+<div class="row container book-container">
+    <div class="col">
+        <div class="row">
+            <div class="col text-center">
+                <div class="book-head">
+                    Book Details
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row book-details">
+            <div class="col">
+                <div class="row j-center">
+                    <div class="offset-3 col-3 col-head">
+                        Book Title
+                    </div>
+                    <div class="col-6">
+                        {{bookDetails.title}}
+                    </div>
+                </div>
+                <div class="row j-center">
+                    <div class="offset-3 col-3 col-head">
+                        Book Author
+                    </div>
+                    <div class="col-6">
+                        {{bookDetails.author}}
+                    </div>
+                </div>
+                <div class="row j-center">
+                    <div class="offset-3 col-3 col-head">
+                        Book Type
+                    </div>
+                    <div class="col-6">
+                        {{bookDetails.type}}
+                    </div>
+                </div>
+                <div class="row j-center">
+                    <div class="offset-3 col-3 col-head">
+                        Book Image
+                    </div>
+                    <div class="col-6">
+                        <div class="book-image-preview">
+                            <img class="image" [src]="bookDetails.image" *ngIf="bookDetails.image">
+                        </div>
+                    </div>
+                </div>
+                <div class="row j-center">
+                    <div class="col-6 text-center">
+                        <div class="request-cancel-btn-box">
+                            <button class="request-btn" (click)="requestForBook()">Request For Book</button>
+                            <button class="cancel-btn" (click)="onCancel()"> Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

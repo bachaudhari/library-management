@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col text-center">
                 <div class="user-list-head">
-                    User List
+                    Book Requests
                 </div>
             </div>
         </div>
@@ -13,44 +13,32 @@
             <div class="col">
                 <div class="row head">
                     <div class="col">
-                        <div class="col-head">Status</div>
-                    </div>
-                    <div class="col">
                         <div class="col-head">Name</div>
-                    </div>
-                    <div class="col">
-                        <div class="col-head">Age</div>
                     </div>
                     <div class="col">
                         <div class="col-head">Email</div>
                     </div>
                     <div class="col">
-                        <div class="col-head">Phone</div>
+                        <div class="col-head">Book Title</div>
                     </div>
                     <div class="col">
-                        <div class="col-head">Address</div>
+                        <div class="col-head">Book Type</div>
                     </div>
                 </div>
 
                 <div class="body">
                     <div class="row body-row" *ngFor="let user of users" (click)="userDetails(user)">
                         <div class="col">
-                            <div class="data">New</div>
-                        </div>
-                        <div class="col">
                             <div class="data">{{user?.name || '--'}}</div>
-                        </div>
-                        <div class="col">
-                            <div class="data">{{user?.age || '--'}}</div>
                         </div>
                         <div class="col">
                             <div class="data">{{user?.email || '--'}}</div>
                         </div>
                         <div class="col">
-                            <div class="data">{{user?.phone || '--'}}</div>
+                            <div class="data">Book Title</div>
                         </div>
                         <div class="col">
-                            <div class="data">{{user?.address || '--'}}</div>
+                            <div class="data">Book Type</div>
                         </div>
                     </div>
                 </div>

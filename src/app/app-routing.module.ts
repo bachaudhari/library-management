@@ -9,6 +9,9 @@ import { HomeComponent } from './user/home/home.component';
 import { LandingComponent } from './landing/landing.component';
 import { AddNewUserComponent } from './registration/add-new-user/add-new-user.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { BookDetailsComponent } from './user/book-details/book-details.component';
+import { BookRequestsComponent } from './admin/book-requests/book-requests.component';
+import { BookRequestDetailsComponent } from './admin/book-request-details/book-request-details.component';
 
 const routes: Routes = [
   {
@@ -44,12 +47,24 @@ const routes: Routes = [
       {
         path: 'user-details',
         component: UserDetailsComponent
+      },
+      {
+        path: 'book-requests',
+        component: BookRequestsComponent
+      },
+      {
+        path: 'book-request',
+        component: BookRequestDetailsComponent
       }
     ]
   },
   {
     path: 'user',
     component: HomeComponent
+  },
+  {
+    path: 'book-details',
+    component: BookDetailsComponent
   },
   {
     path: 'user-registration',

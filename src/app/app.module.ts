@@ -16,6 +16,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import { BookDetailsComponent } from './user/book-details/book-details.component';
+import { BookRequestsComponent } from './admin/book-requests/book-requests.component';
+import { BookRequestDetailsComponent } from './admin/book-request-details/book-request-details.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     AddNewUserComponent,
     LandingComponent,
     NavBarComponent,
-    SignInComponent
+    SignInComponent,
+    BookDetailsComponent,
+    BookRequestsComponent,
+    BookRequestDetailsComponent
   ],
   imports: [
     BrowserModule,

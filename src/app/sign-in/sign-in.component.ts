@@ -29,9 +29,14 @@ export class SignInComponent implements OnInit {
   signIn() {
     const credentials = this.signInForm.value;
     if (credentials && credentials.userName && credentials.password) {
+      this.setDetailsInLocalStorage(credentials);
+
+
       if (credentials.userName === 'admin' && credentials.password === '123') {
+        this.adminService.showNavIfAdmin.next(true);
         this.router.navigate(['/admin/user-list']);
       } else if (credentials.userName === 'user' && credentials.password === '123') {
+        this.adminService.showNavIfAdmin.next(false);
         this.router.navigate(['/user']);
       } else {
         this.error = 'Please provide valid credentials.';
@@ -39,5 +44,9 @@ export class SignInComponent implements OnInit {
     } else {
       this.error = 'Please provide credentials.';
     }
+  }
+
+  setDetailsInLocalStorage(credentials) {
+    this.adminService.setLocalStorage('userName', credentials.userName);
   }
 }

@@ -6,12 +6,12 @@
                 <!-- <input type="text" class="search-input" placeholder="Search book" #bookSearchInput> -->
                 <!-- <p-autoComplete [suggestions]="searchBook  -->
 
-                <p-autoComplete [suggestions]="searchBookList" field="title" [minLength]="1"
-                    (completeMethod)="searchBook($event)" placeholder="Search book" emptyMessage="No books available for search query">
+                <p-autoComplete [suggestions]="searchBookList" field="title" [minLength]="1" (onSelect)="onSelect($event)"
+                    (completeMethod)="searchBook($event)" placeholder="Search by book or type" emptyMessage="No books available for search query">
                     <ng-template let-book pTemplate="item">
                         <div class="book-item d-flex">
                             <img [src]="book.image"  class="book-img"/>
-                            <div class="book-title">{{book.title}}</div>
+                            <div class="book-title">{{book.title}} ({{book.type}})</div>
                         </div>
                     </ng-template>
                 </p-autoComplete>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="body">
-                    <div class="row body-row" *ngFor="let book of books">
+                    <div class="row body-row" *ngFor="let book of books" (click)="bookDetails(book)">
                         <div class="col">
                             <div class="col-head status pending">Pending</div>
                         </div>

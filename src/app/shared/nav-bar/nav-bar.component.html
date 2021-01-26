@@ -1,23 +1,26 @@
 <div class="nav-bar-wrapper">
-    <div class="row container nav-bar">
+    <div class="row nav-bar">
         <div class="col">
-            <div class="row">
-                <div class="col">
-                    <div class="nav-link" routerLink="user-list" routerLinkActive="active">
-                        User List
-                    </div>
-                    <!-- </div>
-            <div class="col"> -->
-                    <div class="nav-link" routerLink="book-list" routerLinkActive="active">
-                        Book List
-                    </div>
-                    <!-- </div>
-            <div class="col"> -->
-                    <div class="nav-link" routerLink="add-book" routerLinkActive="active">
-                        Add Book
-                    </div>
+            <span class="project-title" (click)="redirectToHome()">
+                Library Management
+            </span>
+            <div class="nav-wrapper" *ngIf="showNav">
+                <div class="nav-link" routerLink="admin/user-list" routerLinkActive="active">
+                    User List
+                </div>
+                <div class="nav-link" routerLink="admin/book-list" routerLinkActive="active">
+                    Book List
+                </div>
+                <!-- <div class="nav-link" routerLink="admin/add-book" routerLinkActive="active">
+                    Add Book
+                </div> -->
+                <div class="nav-link" routerLink="admin/book-requests" routerLinkActive="active">
+                    Requests
                 </div>
             </div>
+            <span class="logout-link" *ngIf="userType" (click)="logout()">
+                Logout
+            </span>
         </div>
     </div>
 </div>

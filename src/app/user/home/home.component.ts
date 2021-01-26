@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/admin/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ export class HomeComponent implements OnInit {
   searchBookList;
 
   constructor(
-    public adminService: AdminService
+    public adminService: AdminService,
+    public router: Router
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,23 @@ export class HomeComponent implements OnInit {
     //   }
     // }
 
-    this.searchBookList = this.books.filter(x => x.title.toLowerCase().includes(event.query.toLowerCase()));
+    this.searchBookList = this.books.filter(x => x.title.toLowerCase().includes(event.query.toLowerCase())  || 
+    x.type.toLowerCase().includes(event.query.toLowerCase()));
   }
 
+  onSelect(e) {
+    this.router.navigate(['book-details'], {
+      queryParams: {
+        book: e.title
+      }
+    });
+  }
+
+  bookDetails(book){
+    this.router.navigate(['book-details'], {
+      queryParams: {
+        book: book.title
+      }
+    });
+  }
 }
