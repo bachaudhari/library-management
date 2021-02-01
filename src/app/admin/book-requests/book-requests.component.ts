@@ -24,7 +24,7 @@ export class BookRequestsComponent implements OnInit {
   }
 
   userDetails(user) {
-    this.router.navigate(['admin/user-details'], {
+    this.router.navigate(['admin/book-request-details'], {
       queryParams: {
         userEmail: user.email
       }

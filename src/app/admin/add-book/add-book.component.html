@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col text-center">
                 <div class="add-new-book-head">
-                    Add New Book
+                    {{bookID ?  'Update Book' : 'Add Book'}}
                 </div>
             </div>
         </div>
@@ -49,10 +49,11 @@
                     </div>
                     <div class="row j-center">
                         <div class="col-6">
-                            <input class="upload-file" #file type="file" accept='image/*' (change)="previewBookImage(file.files[0])" />
+                            <input class="upload-file" #file type="file" accept='image/*'
+                                (change)="previewBookImage(file.files[0])" />
 
-                            <div class="book-image-preview">
-                                <img class="image" [src]="bookImageURL" *ngIf="bookImageURL">
+                            <div class="book-image-preview" *ngIf="bookImageURL">
+                                <img class="image" [src]="bookImageURL">
                             </div>
                         </div>
                     </div>
@@ -60,7 +61,9 @@
                     <div class="row j-center">
                         <div class="col-6 text-center">
                             <div class="submit-cancel-btn-box">
-                                <button class="submit-btn" (click)="submitBook()">Submit</button>
+                                <button class="submit-btn"
+                                    (click)="submitBook()">{{bookID ?  'Update' : 'Save'}}</button>
+                                <button class="submit-btn" (click)="removeBook()" *ngIf="bookID">Remove</button>
                                 <button class="cancel-btn" (click)="cancel()"> Cancel</button>
                             </div>
                         </div>

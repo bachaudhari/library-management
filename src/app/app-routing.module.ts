@@ -53,7 +53,7 @@ const routes: Routes = [
         component: BookRequestsComponent
       },
       {
-        path: 'book-request',
+        path: 'book-request-details',
         component: BookRequestDetailsComponent
       }
     ]

@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class AdminService {
   showNavIfAdmin = new Subject();
+  isUserLogged = new Subject();
 
   constructor() { }
 
@@ -19,5 +20,9 @@ export class AdminService {
 
   clearLocalStorageByKey(key) {
     localStorage.removeItem(key);
+  }
+
+  clearAllLocalStorage(){
+    localStorage.clear();
   }
 }

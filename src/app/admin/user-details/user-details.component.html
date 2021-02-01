@@ -43,35 +43,38 @@
                         {{user.phone}}
                     </div>
                 </div>
-                <div class="row j-center">
-                    <div class="offset-3 col-3 col-head">
-                        Requested Book Title
-                    </div>
-                    <div class="col-6">
-                        Requested Book Title
+
+                <div class="row user-books-grid">
+                    <div class="col-8">
+                        <div class="row head">
+                            <div class="col col-head">
+                                Book Title
+                            </div>
+                            <div class="col col-head">
+                                Book Author
+                            </div>
+                            <div class="col col-head">
+                                Book Image
+                            </div>
+                        </div>
+                        <div class="row body" *ngFor="let item of [1,2,3]">
+                            <div class="col">
+                                Book Title
+                            </div>
+                            <div class="col">
+                                Book Author
+                            </div>
+                            <div class="col">
+                                Book Image
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row j-center">
-                    <div class="offset-3 col-3 col-head">
-                        Requested Book Author
-                    </div>
-                    <div class="col-6">
-                        Requested Book Author
-                    </div>
-                </div>
-                <div class="row j-center">
-                    <div class="offset-3 col-3 col-head">
-                        Requested Book Image
-                    </div>
-                    <div class="col-6">
-                        Requested Book Image
-                    </div>
-                </div>
+
                 <div class="row j-center">
                     <div class="col-6 text-center">
                         <div class="approve-cancel-btn-box">
-                            <button class="approve-btn">Approve</button>
-                            <button class="cancel-btn"> Cancel</button>
+                            <button class="approve-btn" (click)="goToUseList()">Go To User List</button>
                         </div>
                     </div>
                 </div>

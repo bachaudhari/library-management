@@ -31,12 +31,15 @@ export class SignInComponent implements OnInit {
     if (credentials && credentials.userName && credentials.password) {
       this.setDetailsInLocalStorage(credentials);
 
-
       if (credentials.userName === 'admin' && credentials.password === '123') {
         this.adminService.showNavIfAdmin.next(true);
+        this.adminService.isUserLogged.next(true);
+        this.adminService.setLocalStorage('isUserLogged', true)
         this.router.navigate(['/admin/user-list']);
       } else if (credentials.userName === 'user' && credentials.password === '123') {
         this.adminService.showNavIfAdmin.next(false);
+        this.adminService.isUserLogged.next(true);
+        this.adminService.setLocalStorage('isUserLogged', true)
         this.router.navigate(['/user']);
       } else {
         this.error = 'Please provide valid credentials.';

@@ -1,0 +1,66 @@
+.book-details-container {
+    margin: auto;
+
+    .book-details-head {
+        font-size: 24px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .book-details {
+        margin-top: 20px;
+
+        .col-head {
+            font-size: 14px;
+            color: #252525;
+            font-weight: 600;
+        }
+
+        .j-center {
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .approve-cancel-btn-box {
+            margin-top: 15px;
+
+            .approve-btn {
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 20px;
+                padding: 7px;
+                text-align: center;
+                box-shadow: none;
+                background: #ffffff;
+                color: #1976d2;
+                border: 2px solid #1976d2;
+                width: 150px;
+                margin-right: 15px;
+
+                &:hover {
+                    background: #1976d2;
+                    color: #ffffff;
+                }
+            }
+
+            .cancel-btn {
+                font-weight: 600;
+                font-size: 14px;
+                border-radius: 20px;
+                padding: 7px;
+                text-align: center;
+                box-shadow: none;
+                background: #ffffff;
+                color: #dc3545;
+                border: 2px solid #dc3545;
+                width: 150px;
+                margin-right: 15px;
+
+                &:hover {
+                    background: #dc3545;
+                    color: #ffffff;
+                }
+            }
+        }
+    }
+}

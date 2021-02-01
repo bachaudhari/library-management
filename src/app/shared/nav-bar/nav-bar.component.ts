@@ -10,6 +10,7 @@ import { AdminService } from 'src/app/admin/services/admin.service';
 export class NavBarComponent implements OnInit {
   userType;
   showNav = false;
+  showLogout = false;
 
   constructor(
     public router: Router,
@@ -17,6 +18,10 @@ export class NavBarComponent implements OnInit {
   ) {
     this.adminService.showNavIfAdmin.subscribe((isShowNav: any) => {
       this.showNav = isShowNav;
+    });
+
+    this.adminService.isUserLogged.subscribe((logged: any) => {
+      this.showLogout = logged;
     });
   }
 
@@ -42,14 +47,17 @@ export class NavBarComponent implements OnInit {
       this.userType = user.toLowerCase();
 
       if (this.userType === 'admin') {
-        this.adminService.showNavIfAdmin.next(true);        
+        this.adminService.showNavIfAdmin.next(true);
       }
     }
+
+    this.showLogout = this.adminService.getLocalStorage('isUserLogged');
   }
 
   logout() {
     this.adminService.clearLocalStorageByKey('userName');
     this.adminService.showNavIfAdmin.next(false);
+    this.adminService.isUserLogged.next(false);
     this.router.navigate(['']);
   }
 }

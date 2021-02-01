@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AdminService } from '../services/admin.service'
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-book',
@@ -11,25 +11,48 @@ import { Router } from '@angular/router';
 export class AddBookComponent implements OnInit {
   addBookForm: FormGroup;
   bookImageURL;
+  bookID;
 
   constructor(
     private fb: FormBuilder,
     public adminService: AdminService,
-    public router: Router
+    public router: Router,
+    public activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.bookID = this.activatedRoute.snapshot.queryParams.bookId;
+
+    if (this.bookID) {
+      this.editBookDetails();
+    } else {
+      this.setBookForm();
+    }
+  }
+
+  editBookDetails() {
+    const books = this.getBooks();
+
+    const bookDetails = books.find(x => x.title === this.bookID);
+    this.setBookForm(bookDetails);
+  }
+
+  setBookForm(bookDetails?) {
     this.addBookForm = this.fb.group({
-      title: ['', Validators.required],
-      author: [''],
-      type: [''],
-      image: ['']
+      title: [bookDetails && bookDetails.title ? bookDetails.title : '', Validators.required],
+      author: [bookDetails && bookDetails.author ? bookDetails.author : ''],
+      type: [bookDetails && bookDetails.type ? bookDetails.type : ''],
+      image: [''],
     });
+
+    if (bookDetails && bookDetails.image) {
+      this.bookImageURL = bookDetails.image;
+    }
   }
 
   submitBook() {
     const addNewBook = this.addBookForm.value;
-    const books: any[] = this.adminService.getLocalStorage('books') || [];
+    const books: any[] = this.getBooks();
 
     books.push(addNewBook)
 
@@ -41,7 +64,13 @@ export class AddBookComponent implements OnInit {
   }
 
   cancel() {
+    setTimeout(() => {
+      this.router.navigate(['admin/book-list']);
+    }, 300);
+  }
 
+  getBooks() {
+    return this.adminService.getLocalStorage('books') || [];
   }
 
   previewBookImage(file: File) {
@@ -59,5 +88,22 @@ export class AddBookComponent implements OnInit {
       this.bookImageURL = reader.result;
       that.addBookForm.controls['image'].setValue(this.bookImageURL);
     }
+  }
+
+  removeBook() {
+    debugger
+    const books: any[] = this.getBooks();
+    const book = books.findIndex(x => x.title === this.bookID);
+    books.splice(book, 1);
+
+    this.adminService.setLocalStorage('books', books);
+
+    this.addBookForm.reset();
+    this.bookID = '';
+    this.bookImageURL = '';
+    setTimeout(() => {
+      this.router.navigate(['admin/book-list']);
+    }, 300);
+
   }
 }
