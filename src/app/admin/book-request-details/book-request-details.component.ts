@@ -26,4 +26,12 @@ export class BookRequestDetailsComponent implements OnInit {
     this.user = this.users.find(x => x.email.toLowerCase() === userEmail.toLowerCase());
   }
 
+  getRequestBookDetails(){
+    const userBookRequestsFromStorage = this.adminService.getLocalStorage('user-book-requests');
+    const userEmail = this.activatedRoute.snapshot.queryParams.userEmail;
+    const bookTitle = this.activatedRoute.snapshot.queryParams.bookTitle;
+
+
+  }
+
 }

@@ -22,6 +22,14 @@
                             <input type="text" class="input-field" formControlName="title">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addBookForm?.controls?.title?.touched && addBookForm?.controls?.title?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addBookForm?.controls?.title?.errors?.required">Book title is
+                                required</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Book Author
@@ -32,6 +40,14 @@
                             <input type="text" class="input-field" formControlName="author">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addBookForm?.controls?.author?.touched && addBookForm?.controls?.author?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addBookForm?.controls?.author?.errors?.required">Book author is
+                                required</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Book Type
@@ -42,6 +58,14 @@
                             <input type="text" class="input-field" formControlName="type">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addBookForm?.controls?.type?.touched && addBookForm?.controls?.type?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addBookForm?.controls?.type?.errors?.required">Book type is
+                                required</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Book Image
@@ -61,8 +85,8 @@
                     <div class="row j-center">
                         <div class="col-6 text-center">
                             <div class="submit-cancel-btn-box">
-                                <button class="submit-btn"
-                                    (click)="submitBook()">{{bookID ?  'Update' : 'Save'}}</button>
+                                <button class="submit-btn" (click)="submitBook()"
+                                    [disabled]="!addBookForm.valid">{{bookID ?  'Update' : 'Save'}}</button>
                                 <button class="submit-btn" (click)="removeBook()" *ngIf="bookID">Remove</button>
                                 <button class="cancel-btn" (click)="cancel()"> Cancel</button>
                             </div>

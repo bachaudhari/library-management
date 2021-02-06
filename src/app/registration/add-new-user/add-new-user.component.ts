@@ -19,10 +19,11 @@ export class AddNewUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.addUserForm = this.fb.group({
-      name: [''],
+      name: ['', Validators.required],
       age: [''],
-      email: [''],
-      phone: [''],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      phone: ['', Validators.required],
       address: ['']
     });
   }
@@ -31,16 +32,19 @@ export class AddNewUserComponent implements OnInit {
     const addNewUser = this.addUserForm.value;
     const users: any[] = this.adminService.getLocalStorage('users') || [];
 
+    addNewUser.email = addNewUser.email.toLowerCase();
+    addNewUser.password = addNewUser.password.toLowerCase();
     users.push(addNewUser)
 
     this.adminService.setLocalStorage('users', users);
 
     setTimeout(() => {
-      this.router.navigate(['admin/user-list']);
+      this.router.navigate(['sign-in']);
     }, 300);
   }
 
   cancel() {
     this.addUserForm.reset();
+    this.router.navigate(['sign-in']);
   }
 }

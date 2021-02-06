@@ -40,8 +40,8 @@ export class AddBookComponent implements OnInit {
   setBookForm(bookDetails?) {
     this.addBookForm = this.fb.group({
       title: [bookDetails && bookDetails.title ? bookDetails.title : '', Validators.required],
-      author: [bookDetails && bookDetails.author ? bookDetails.author : ''],
-      type: [bookDetails && bookDetails.type ? bookDetails.type : ''],
+      author: [bookDetails && bookDetails.author ? bookDetails.author : '', Validators.required],
+      type: [bookDetails && bookDetails.type ? bookDetails.type : '', Validators.required],
       image: [''],
     });
 

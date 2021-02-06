@@ -79,8 +79,16 @@
                 }
 
                 .status {
+                    text-transform: capitalize;
+
                     &.pending {
-                        color: orangered;
+                        color: #ffa400;
+                    }
+                    &.rejected {
+                        color: #ff595a;
+                    }
+                    &.approved {
+                        color: #28a745;
                     }
                 }
             }

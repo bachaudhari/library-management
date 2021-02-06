@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   books;
   searchBookList;
+  userBookRequests;
+  loggedUserDetails;
 
   constructor(
     public adminService: AdminService,
@@ -17,7 +19,19 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.loggedUserDetails = this.adminService.getLocalStorage('loggedUserDetails');
+    this.getUserBookRequests();
     this.getBooks();
+  }
+
+  getUserBookRequests() {
+    debugger
+    const userBookRequests: any[] = this.adminService.getLocalStorage('user-book-requests') || [];
+    const loggedUserBookRequests = userBookRequests && userBookRequests.find(x => x.userEmail === this.loggedUserDetails.email);
+
+    if (loggedUserBookRequests && loggedUserBookRequests.books) {
+      this.userBookRequests = loggedUserBookRequests.books;
+    }
   }
 
   getBooks() {
@@ -39,8 +53,8 @@ export class HomeComponent implements OnInit {
     //   }
     // }
 
-    this.searchBookList = this.books.filter(x => x.title.toLowerCase().includes(event.query.toLowerCase())  || 
-    x.type.toLowerCase().includes(event.query.toLowerCase()));
+    this.searchBookList = this.books.filter(x => x.title.toLowerCase().includes(event.query.toLowerCase()) ||
+      x.type.toLowerCase().includes(event.query.toLowerCase()));
   }
 
   onSelect(e) {
@@ -51,7 +65,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  bookDetails(book){
+  bookDetails(book) {
     this.router.navigate(['book-details'], {
       queryParams: {
         book: book.title

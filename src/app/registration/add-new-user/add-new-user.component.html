@@ -22,6 +22,13 @@
                             <input type="text" class="input-field" formControlName="name">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addUserForm?.controls?.name?.touched && addUserForm?.controls?.name?.errors?.required">
+                        <div class="col-6">
+                            <span class="error">Full name is required</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Age
@@ -42,6 +49,34 @@
                             <input type="text" class="input-field" formControlName="email">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addUserForm?.controls?.email?.touched && addUserForm?.controls?.email?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addUserForm?.controls?.email?.errors?.required">Email is
+                                required</span>
+                            <span class="error" *ngIf="addUserForm?.controls?.email?.errors?.email">Please provide email
+                                Id</span>
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Password
+                        </div>
+                    </div>
+                    <div class="row j-center">
+                        <div class="col-6">
+                            <input type="password" class="input-field" formControlName="password">
+                        </div>
+                    </div>
+
+                    <div class="row j-center"
+                        *ngIf="addUserForm?.controls?.password?.touched && addUserForm?.controls?.password?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addUserForm?.controls?.password?.errors?.required">Password is
+                                required</span>
+                        </div>
+                    </div>
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Phone No.
@@ -52,6 +87,14 @@
                             <input type="text" class="input-field" formControlName="phone">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="addUserForm?.controls?.phone?.touched && addUserForm?.controls?.phone?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="addUserForm?.controls?.phone?.errors?.required">Phone number is
+                                required</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Address
@@ -66,7 +109,8 @@
                     <div class="row j-center">
                         <div class="col-6 text-center">
                             <div class="submit-cancel-btn-box">
-                                <button class="submit-btn" (click)="addUser()">Submit</button>
+                                <button class="submit-btn" (click)="addUser()"
+                                    [disabled]="!addUserForm.valid">Submit</button>
                                 <button class="cancel-btn" (click)="cancel()"> Cancel</button>
                             </div>
                         </div>

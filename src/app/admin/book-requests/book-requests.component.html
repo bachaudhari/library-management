@@ -27,18 +27,18 @@
                 </div>
 
                 <div class="body">
-                    <div class="row body-row" *ngFor="let user of users" (click)="userDetails(user)">
+                    <div class="row body-row" *ngFor="let book of userBookRequests" (click)="userBookDetails(book)">
                         <div class="col">
-                            <div class="data">{{user?.name || '--'}}</div>
+                            <div class="data">{{loggedUser?.name || '--'}}</div>
                         </div>
                         <div class="col">
-                            <div class="data">{{user?.email || '--'}}</div>
+                            <div class="data">{{loggedUser?.email || '--'}}</div>
                         </div>
                         <div class="col">
-                            <div class="data">Book Title</div>
+                            <div class="data">{{book?.title || '--'}}</div>
                         </div>
                         <div class="col">
-                            <div class="data">Book Type</div>
+                            <div class="data">{{book?.author || '--'}}</div>
                         </div>
                     </div>
                 </div>

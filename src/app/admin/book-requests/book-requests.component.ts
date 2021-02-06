@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./book-requests.component.scss']
 })
 export class BookRequestsComponent implements OnInit {
-  users: any[];
+  loggedUser;
+  userBookRequests;
+  userRequests;
 
   constructor(
     public adminService: AdminService,
@@ -16,18 +18,26 @@ export class BookRequestsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.getUsers();
+    this.getUserBookRequests();
   }
 
-  getUsers() {
-    this.users = this.adminService.getLocalStorage('users');
-  }
-
-  userDetails(user) {
+  userBookDetails(book) {
     this.router.navigate(['admin/book-request-details'], {
       queryParams: {
-        userEmail: user.email
+        userEmail: this.loggedUser.email,
+        bookTitle: book.title
       }
     })
+  }
+
+  getUserBookRequests() {
+    debugger
+    const userBookRequestsFromStorage = this.adminService.getLocalStorage('user-book-requests');
+    if (userBookRequestsFromStorage) {
+      const users = this.adminService.getLocalStorage('users');
+
+      this.loggedUser = users.find(x => x.email === userBookRequestsFromStorage.userEmail);;
+      this.userBookRequests = userBookRequestsFromStorage.books;
+    }
   }
 }

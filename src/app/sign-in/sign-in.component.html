@@ -14,14 +14,24 @@
                 <div class="col">
                     <div class="row j-center">
                         <div class="col-6 col-head">
-                            UserName
+                            Email
                         </div>
                     </div>
                     <div class="row j-center">
                         <div class="col-6">
-                            <input type="text" class="input-field" formControlName="userName">
+                            <input type="text" class="input-field" formControlName="email">
                         </div>
                     </div>
+                    <div class="row j-center"
+                        *ngIf="signInForm?.controls?.email?.touched && signInForm?.controls?.email?.errors">
+                        <div class="col-6">
+                            <span class="error" *ngIf="signInForm?.controls?.email?.errors?.required">Email is
+                                required</span>
+                            <span class="error" *ngIf="signInForm?.controls?.email?.errors?.email">Please provide
+                                valid email Id</span>
+                        </div>
+                    </div>
+
                     <div class="row j-center">
                         <div class="col-6 col-head">
                             Password
@@ -32,9 +42,15 @@
                             <input type="password" class="input-field" formControlName="password">
                         </div>
                     </div>
-
-                    <div class="row j-center">
+                    <div class="row j-center"
+                        *ngIf="signInForm?.controls?.password?.touched && signInForm?.controls?.password?.errors?.required">
                         <div class="col-6">
+                            <span class="error">Password is required</span>
+                        </div>
+                    </div>
+
+                    <div class="row j-center" *ngIf="!signInForm?.valid">
+                        <div class="col-6 text-center">
                             <span class="error">{{error}}</span>
                         </div>
                     </div>

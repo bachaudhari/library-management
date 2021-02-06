@@ -36,14 +36,21 @@
             }
         }
 
-        .logout-link {
+        .session-box {
+            float: right;
+            margin-top: 20px;
+            margin-right: 20px;
             font-size: 16px;
             color: #ffffff;
             font-weight: 600;
-            cursor: pointer;
-            position: absolute;
-            top: 22px;
-            right: 25px;
+
+            .logged-user {
+                margin-right: 30px;
+            }
+
+            .logout-link {
+                cursor: pointer;
+            }
         }
     }
 }

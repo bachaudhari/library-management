@@ -4,7 +4,7 @@
             <span class="project-title" (click)="redirectToHome()">
                 Library Management
             </span>
-            <div class="nav-wrapper" *ngIf="showNav">
+            <div class="nav-wrapper" *ngIf="isAdmin">
                 <div class="nav-link" routerLink="admin/user-list" routerLinkActive="active">
                     User List
                 </div>
@@ -18,9 +18,14 @@
                     Requests
                 </div>
             </div>
-            <span class="logout-link" *ngIf="showLogout" (click)="logout()">
-                Logout
-            </span>
+            <div class="session-box">
+                <span class="logged-user">
+                    {{userName}}
+                </span>
+                <span class="logout-link" *ngIf="showLogout" (click)="logout()">
+                    Logout
+                </span>
+            </div>
         </div>
     </div>
 </div>

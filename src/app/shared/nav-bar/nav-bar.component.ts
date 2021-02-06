@@ -11,6 +11,8 @@ export class NavBarComponent implements OnInit {
   userType;
   showNav = false;
   showLogout = false;
+  isAdmin = false;
+  userName = '';
 
   constructor(
     public router: Router,
@@ -21,7 +23,12 @@ export class NavBarComponent implements OnInit {
     });
 
     this.adminService.isUserLogged.subscribe((logged: any) => {
+      debugger
       this.showLogout = logged;
+
+      setTimeout(() => {
+        this.getDetailsFromLocalStorage();
+      }, 300);
     });
   }
 
@@ -42,22 +49,37 @@ export class NavBarComponent implements OnInit {
   }
 
   getDetailsFromLocalStorage() {
-    const user = this.adminService.getLocalStorage('userName');
-    if (user) {
-      this.userType = user.toLowerCase();
+    // const user = this.adminService.getLocalStorage('userName');
+    // if (user) {
+    //   this.userType = user.toLowerCase();
 
-      if (this.userType === 'admin') {
-        this.adminService.showNavIfAdmin.next(true);
-      }
+    //   if (this.userType === 'admin') {
+    //     this.adminService.showNavIfAdmin.next(true);
+    //   }
+    // }
+
+    this.isAdmin = this.adminService.getLocalStorage('isAdmin');
+    if (this.isAdmin) {
+      this.userName = 'Admin';
+      this.showNav = true;
+    } else {
+      const loggedUserDetails = this.adminService.getLocalStorage('loggedUserDetails');
+      this.userName = loggedUserDetails && loggedUserDetails.name;
     }
 
+    debugger
     this.showLogout = this.adminService.getLocalStorage('isUserLogged');
   }
 
   logout() {
     this.adminService.clearLocalStorageByKey('userName');
+    this.adminService.clearLocalStorageByKey('loggedUserDetails');
+    this.adminService.clearLocalStorageByKey('isAdmin');
+    this.adminService.clearLocalStorageByKey('isUserLogged');
+    this.adminService.clearLocalStorageByKey('email');
     this.adminService.showNavIfAdmin.next(false);
     this.adminService.isUserLogged.next(false);
+    this.showLogout = false;
     this.router.navigate(['']);
   }
 }
