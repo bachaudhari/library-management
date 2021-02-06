@@ -33,6 +33,11 @@
 
                 .data {
                     padding: 5px;
+
+                    &.view-request {
+                        cursor: pointer;
+                        color: #1976d2;
+                    }
                 }
             }
         }

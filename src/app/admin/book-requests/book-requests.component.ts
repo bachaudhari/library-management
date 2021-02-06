@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class BookRequestsComponent implements OnInit {
   loggedUser;
-  userBookRequests;
+  userBookRequests = [];
   userRequests;
 
   constructor(
@@ -21,23 +21,28 @@ export class BookRequestsComponent implements OnInit {
     this.getUserBookRequests();
   }
 
-  userBookDetails(book) {
+  userBookDetails(user) {
     this.router.navigate(['admin/book-request-details'], {
       queryParams: {
-        userEmail: this.loggedUser.email,
-        bookTitle: book.title
+        userEmail: user.userEmail,
       }
     })
   }
 
   getUserBookRequests() {
     debugger
-    const userBookRequestsFromStorage = this.adminService.getLocalStorage('user-book-requests');
+    let userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests');
     if (userBookRequestsFromStorage) {
       const users = this.adminService.getLocalStorage('users');
 
-      this.loggedUser = users.find(x => x.email === userBookRequestsFromStorage.userEmail);;
-      this.userBookRequests = userBookRequestsFromStorage.books;
+      userBookRequestsFromStorage.forEach(ele => {
+        debugger
+        if (ele.books.find(x => x.status === 'pending')) {
+          const user = users.find(x => x.email === ele.userEmail);
+          ele.name = user.name;
+          this.userBookRequests.push(ele);
+        }
+      })
     }
   }
 }

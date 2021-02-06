@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
     const loggedUserBookRequests = userBookRequests && userBookRequests.find(x => x.userEmail === this.loggedUserDetails.email);
 
     if (loggedUserBookRequests && loggedUserBookRequests.books) {
-      this.userBookRequests = loggedUserBookRequests.books;
+      this.userBookRequests = loggedUserBookRequests;
     }
   }
 
@@ -66,6 +66,11 @@ export class HomeComponent implements OnInit {
   }
 
   bookDetails(book) {
+    debugger
+    if (book && book.status != 'pending') {
+      return;
+    }
+
     this.router.navigate(['book-details'], {
       queryParams: {
         book: book.title

@@ -12,33 +12,27 @@
         <div class="row user-grid">
             <div class="col">
                 <div class="row head">
-                    <div class="col">
+                    <div class="col-5">
                         <div class="col-head">Name</div>
                     </div>
-                    <div class="col">
+                    <div class="col-5">
                         <div class="col-head">Email</div>
                     </div>
-                    <div class="col">
-                        <div class="col-head">Book Title</div>
-                    </div>
-                    <div class="col">
-                        <div class="col-head">Book Type</div>
+                    <div class="col-2">
+                        <div class="col-head">Manage book access</div>
                     </div>
                 </div>
 
                 <div class="body">
-                    <div class="row body-row" *ngFor="let book of userBookRequests" (click)="userBookDetails(book)">
-                        <div class="col">
-                            <div class="data">{{loggedUser?.name || '--'}}</div>
+                    <div class="row body-row" *ngFor="let user of userBookRequests">
+                        <div class="col-5">
+                            <div class="data">{{user?.name || '--'}}</div>
                         </div>
-                        <div class="col">
-                            <div class="data">{{loggedUser?.email || '--'}}</div>
+                        <div class="col-5">
+                            <div class="data">{{user?.userEmail || '--'}}</div>
                         </div>
-                        <div class="col">
-                            <div class="data">{{book?.title || '--'}}</div>
-                        </div>
-                        <div class="col">
-                            <div class="data">{{book?.author || '--'}}</div>
+                        <div class="col-2 text-center">
+                            <div class="data view-request" (click)="userBookDetails(user)">View request</div>
                         </div>
                     </div>
                 </div>

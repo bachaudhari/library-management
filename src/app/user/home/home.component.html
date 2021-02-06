@@ -52,9 +52,10 @@
                 </div>
 
                 <div class="body">
-                    <div class="row body-row" *ngFor="let book of userBookRequests" (click)="bookDetails(book)">
+                    <div class="row body-row" *ngFor="let book of userBookRequests?.books" (click)="bookDetails(book)">
                         <div class="col">
-                            <div class="col-head status" [ngClass]="book?.status">{{book?.status}}</div>
+                            <div class="col-head status" [ngClass]="book?.status">
+                                {{book?.status}}</div>
                         </div>
                         <div class="col">
                             <div class="col-head">{{book?.title || '--'}}</div>

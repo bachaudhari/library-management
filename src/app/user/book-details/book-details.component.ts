@@ -36,7 +36,8 @@ export class BookDetailsComponent implements OnInit {
 
     // const loggedUserDetails = this.adminService.getLocalStorage('loggedUserDetails');
     const userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests') || [];
-    const userBookRequest = userBookRequestsFromStorage && userBookRequestsFromStorage.find(x => x.email === this.loggedUserDetails.email);
+    const userBookRequest = userBookRequestsFromStorage && userBookRequestsFromStorage
+      .find(x => x.userEmail === this.loggedUserDetails.email);
 
     if (userBookRequest && userBookRequest.books.length > 1) {
       alert('You can request only upto 2 books');
@@ -46,7 +47,7 @@ export class BookDetailsComponent implements OnInit {
 
       // push book if already has data
       userBookRequest.books.push(this.bookDetails);
-      userBookRequestsFromStorage.push(userBookRequest);
+      // userBookRequestsFromStorage.push(userBookRequest);
       this.adminService.setLocalStorage('user-book-requests', userBookRequestsFromStorage);
     } else {
       this.bookDetails.status = 'pending';

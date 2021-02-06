@@ -23,7 +23,6 @@ export class NavBarComponent implements OnInit {
     });
 
     this.adminService.isUserLogged.subscribe((logged: any) => {
-      debugger
       this.showLogout = logged;
 
       setTimeout(() => {
@@ -67,7 +66,6 @@ export class NavBarComponent implements OnInit {
       this.userName = loggedUserDetails && loggedUserDetails.name;
     }
 
-    debugger
     this.showLogout = this.adminService.getLocalStorage('isUserLogged');
   }
 
