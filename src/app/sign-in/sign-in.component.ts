@@ -36,7 +36,7 @@ export class SignInComponent implements OnInit {
     if (inputCredentials && inputCredentials.email && inputCredentials.password) {
       this.setDetailsInLocalStorage(inputCredentials);
       this.users = this.getUsers();
-      const credentials = this.users && this.users.find(x => x.email === inputCredentials.email)
+      const credentials = this.users && this.users.find(x => x.email === inputCredentials.email.toLowerCase())
 
       if (inputCredentials.email === 'admin@test.com' && inputCredentials.password === 'admin123') {
         // this.adminService.showNavIfAdmin.next(true);
@@ -44,7 +44,7 @@ export class SignInComponent implements OnInit {
         this.adminService.setLocalStorage('isUserLogged', true)
         this.adminService.setLocalStorage('isAdmin', true);
         this.router.navigate(['/admin/user-list']);
-      } else if (credentials && inputCredentials.email === credentials.email && inputCredentials.password === credentials.password) {
+      } else if (credentials && inputCredentials.email.toLowerCase() === credentials.email.toLowerCase() && inputCredentials.password === credentials.password) {
         // this.adminService.showNavIfAdmin.next(false);
         this.adminService.isUserLogged.next(true);
         this.adminService.setLocalStorage('isUserLogged', true);
