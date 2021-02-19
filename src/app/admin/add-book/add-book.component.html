@@ -83,6 +83,19 @@
                     </div>
 
                     <div class="row j-center">
+                        <div class="col-6 col-head">
+                            Upload Book PDF
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
+                        <div class="col-6 col-head">
+                            <input class="upload-file" #pdfFile type="file" accept='.pdf'
+                                (change)="uploadBookPdf(pdfFile)" />
+                        </div>
+                    </div>
+
+                    <div class="row j-center">
                         <div class="col-6 text-center">
                             <div class="submit-cancel-btn-box">
                                 <button class="submit-btn" (click)="submitBook()"

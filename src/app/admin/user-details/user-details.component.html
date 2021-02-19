@@ -8,7 +8,6 @@
             </div>
         </div>
 
-
         <div class="row user-details">
             <div class="col">
                 <div class="row j-center">
@@ -43,6 +42,14 @@
                         {{user.phone}}
                     </div>
                 </div>
+                <div class="row j-center">
+                    <div class="offset-3 col-3 col-head">
+                        Active User
+                    </div>
+                    <div class="col-6">
+                        <input type="checkbox" [(ngModel)]="user.isActive" (change)="updateUser($event)">
+                    </div>
+                </div>
 
                 <div class="row user-books-grid">
                     <div class="col-8">
@@ -57,15 +64,15 @@
                                 Book Image
                             </div>
                         </div>
-                        <div class="row body" *ngFor="let item of [1,2,3]">
+                        <div class="row body" *ngFor="let item of userBooks">
                             <div class="col">
-                                Book Title
+                                {{item?.title}}
                             </div>
                             <div class="col">
-                                Book Author
+                                {{item?.author}}
                             </div>
                             <div class="col">
-                                Book Image
+                                <img [src]="item.image" *ngIf="item?.image" class="book-image">
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class UserDetailsComponent implements OnInit {
   users;
   user;
+  userBooks;
 
   constructor(
     public adminService: AdminService,
@@ -25,9 +26,22 @@ export class UserDetailsComponent implements OnInit {
     this.users = this.adminService.getLocalStorage('users');
     const userEmail = this.activatedRoute.snapshot.queryParams.userEmail;
     this.user = this.users.find(x => x.email.toLowerCase() === userEmail.toLowerCase());
+    this.getRequestBookDetails(userEmail);
   }
 
   goToUseList() {
     this.router.navigate(['admin/user-list'])
+  }
+
+  updateUser($event) {
+    this.user.isActive = $event.currentTarget.checked;
+    this.adminService.setLocalStorage('users', this.users);
+  }
+
+  getRequestBookDetails(userEmail) {
+    const userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests');
+
+    const request = userBookRequestsFromStorage.find(x => x.userEmail === userEmail);
+    this.userBooks = request && request.books.filter(x=>x.status === 'approved');
   }
 }

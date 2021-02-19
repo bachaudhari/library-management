@@ -35,7 +35,7 @@
                 <div class="body">
                     <div class="row body-row" *ngFor="let user of users" (click)="userDetails(user)">
                         <div class="col">
-                            <div class="data">New</div>
+                            <div class="data">{{user.isActive ? 'Active' : 'In-active'}}</div>
                         </div>
                         <div class="col">
                             <div class="data">{{user?.name || '--'}}</div>

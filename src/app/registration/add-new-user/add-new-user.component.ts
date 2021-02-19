@@ -24,7 +24,8 @@ export class AddNewUserComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
       phone: ['', Validators.required],
-      address: ['']
+      address: [''],
+      isActive: true
     });
   }
 

@@ -12,10 +12,10 @@ import { UserDetailsComponent } from './admin/user-details/user-details.componen
 import { HomeComponent } from './user/home/home.component';
 import { AddNewUserComponent } from './registration/add-new-user/add-new-user.component';
 import { LandingComponent } from './landing/landing.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-import {AutoCompleteModule} from 'primeng/autocomplete';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { BookDetailsComponent } from './user/book-details/book-details.component';
 import { BookRequestsComponent } from './admin/book-requests/book-requests.component';
 import { BookRequestDetailsComponent } from './admin/book-request-details/book-request-details.component';
@@ -43,6 +43,7 @@ import { BookRequestDetailsComponent } from './admin/book-request-details/book-r
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     AutoCompleteModule
   ],
   providers: [],
