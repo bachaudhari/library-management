@@ -50,7 +50,7 @@ export class BookRequestDetailsComponent implements OnInit {
     this.adminService.setLocalStorage('user-book-requests', userBookRequestsFromStorage);
 
 
-    alert('Approved successfully');
+    alert('Book approved successfully');
 
     setTimeout(() => {
       this.router.navigate(['admin/book-requests']);

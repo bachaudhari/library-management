@@ -30,8 +30,6 @@ export class SignInComponent implements OnInit {
   }
 
   signIn() {
-    debugger
-    console.log(this.signInForm)
     const inputCredentials = this.signInForm.value;
     if (inputCredentials && inputCredentials.email && inputCredentials.password) {
       this.setDetailsInLocalStorage(inputCredentials);

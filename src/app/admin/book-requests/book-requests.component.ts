@@ -30,13 +30,11 @@ export class BookRequestsComponent implements OnInit {
   }
 
   getUserBookRequests() {
-    debugger
     let userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests');
     if (userBookRequestsFromStorage) {
       const users = this.adminService.getLocalStorage('users');
 
       userBookRequestsFromStorage.forEach(ele => {
-        debugger
         if (ele.books.find(x => x.status === 'pending')) {
           const user = users.find(x => x.email === ele.userEmail);
           ele.name = user.name;

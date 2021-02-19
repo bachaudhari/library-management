@@ -43,6 +43,7 @@ export class AddBookComponent implements OnInit {
       author: [bookDetails && bookDetails.author ? bookDetails.author : '', Validators.required],
       type: [bookDetails && bookDetails.type ? bookDetails.type : '', Validators.required],
       image: [''],
+      bookPDF: []
     });
 
     if (bookDetails && bookDetails.image) {
@@ -91,7 +92,6 @@ export class AddBookComponent implements OnInit {
   }
 
   removeBook() {
-    debugger
     const books: any[] = this.getBooks();
     const book = books.findIndex(x => x.title === this.bookID);
     books.splice(book, 1);
@@ -108,22 +108,15 @@ export class AddBookComponent implements OnInit {
   }
 
   uploadBookPdf(file) {
-    debugger
     const reader = new FileReader();
     reader.readAsDataURL(file.files[0]);
 
-    const that = this;
     reader.onload = (_event) => {
-      debugger
       const fileArrayBuffer: any = _event.target.result;
-      var downloadLink = document.createElement("a");
-      downloadLink.href = fileArrayBuffer;
-      downloadLink.download = 'dummy.pdf' || file.name;
-
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
-      // window.open(reader.result, '_blank')
+      this.addBookForm.controls.bookPDF.setValue({
+        fileName: file.files[0].name,
+        fileResult: fileArrayBuffer
+      });
     }
   }
 }

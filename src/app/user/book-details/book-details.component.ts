@@ -31,9 +31,6 @@ export class BookDetailsComponent implements OnInit {
   }
 
   requestForBook() {
-    debugger
-
-
     // const loggedUserDetails = this.adminService.getLocalStorage('loggedUserDetails');
     const userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests') || [];
     const userBookRequest = userBookRequestsFromStorage && userBookRequestsFromStorage

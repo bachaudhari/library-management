@@ -63,6 +63,9 @@
                             <div class="col col-head">
                                 Book Image
                             </div>
+                            <div class="col col-head">
+                                Status
+                            </div>
                         </div>
                         <div class="row body" *ngFor="let item of userBooks">
                             <div class="col">
@@ -73,6 +76,9 @@
                             </div>
                             <div class="col">
                                 <img [src]="item.image" *ngIf="item?.image" class="book-image">
+                            </div>
+                            <div class="col book-status" [ngClass]="item.status">
+                                {{item.status}}
                             </div>
                         </div>
 

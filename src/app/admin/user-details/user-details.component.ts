@@ -41,7 +41,11 @@ export class UserDetailsComponent implements OnInit {
   getRequestBookDetails(userEmail) {
     const userBookRequestsFromStorage: any[] = this.adminService.getLocalStorage('user-book-requests');
 
+    if (!userBookRequestsFromStorage) {
+      return;
+    }
+
     const request = userBookRequestsFromStorage.find(x => x.userEmail === userEmail);
-    this.userBooks = request && request.books.filter(x=>x.status === 'approved');
+    this.userBooks = request && request.books.filter(x => x.status === 'approved');
   }
 }

@@ -82,16 +82,26 @@
                         </div>
                     </div>
 
-                    <div class="row j-center">
-                        <div class="col-6 col-head">
-                            Upload Book PDF
+                    <div class="upload-pdf-box" *ngIf="!addBookForm?.controls?.bookPDF?.value?.fileResult">
+                        <div class="row j-center">
+                            <div class="col-6 col-head">
+                                Upload Book PDF
+                            </div>
+                        </div>
+
+                        <div class="row j-center">
+                            <div class="col-6 col-head">
+                                <input class="upload-file" #pdfFile type="file" accept='.pdf'
+                                    (change)="uploadBookPdf(pdfFile)" />
+                            </div>
                         </div>
                     </div>
 
-                    <div class="row j-center">
-                        <div class="col-6 col-head">
-                            <input class="upload-file" #pdfFile type="file" accept='.pdf'
-                                (change)="uploadBookPdf(pdfFile)" />
+                    <div class="upload-pdf-box mt-3" *ngIf="addBookForm?.controls?.bookPDF?.value?.fileResult">
+                        <div class="row j-center">
+                            <div class="col-6 col-head">
+                                Uploaded Book PDF - <strong>{{addBookForm?.controls?.bookPDF?.value?.fileName}}</strong>
+                            </div>
                         </div>
                     </div>
 

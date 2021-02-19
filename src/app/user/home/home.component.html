@@ -49,10 +49,13 @@
                     <div class="col">
                         <div class="col-head">Book Image</div>
                     </div>
+                    <div class="col">
+                        <div class="col-head">Book PDF</div>
+                    </div>
                 </div>
 
                 <div class="body">
-                    <div class="row body-row" *ngFor="let book of userBookRequests?.books" (click)="bookDetails(book)">
+                    <div class="row body-row" *ngFor="let book of userBookRequests?.books">
                         <div class="col">
                             <div class="col-head status" [ngClass]="book?.status">
                                 {{book?.status}}</div>
@@ -69,6 +72,12 @@
                         <div class="col">
                             <div class="col-head">
                                 <img [src]="book.image" *ngIf="book.image" class="book-image">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="col-head" [ngClass]="book?.status === 'approved' ? 'download-pdf':''"
+                                (click)="downloadPDF(book, book?.bookPDF)">
+                                {{book?.bookPDF?.fileName || '--'}}
                             </div>
                         </div>
                     </div>
